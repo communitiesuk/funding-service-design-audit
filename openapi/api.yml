@@ -1,0 +1,61 @@
+openapi: "3.0.0"
+info:
+  description: TEMPLATE API for DLUHC Funding Service Design
+  version: "1.0.0"
+  title: Funding Service Design - TEMPLATE
+tags:
+  - name: examples
+    description: Example operations
+paths:
+  /examples:
+    get:
+      tags:
+        - examples
+      summary: List example objects
+      description: List all examples
+      operationId: api.ExamplesView.search
+      responses:
+        200:
+          description: SUCCESS - A list of examples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'components.yml#/components/schemas/ExampleObject'
+      parameters:
+        - name: search_key
+          in: query
+          required: false
+          schema:
+            type: string
+            format: query
+    post:
+      tags:
+        - examples
+      summary: Create an example object
+      description: Create a fesh example object
+      operationId: api.ExamplesView.create
+      requestBody:
+        description: Example creation parameters
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'components.yml#/components/schemas/ExampleObject'
+            example:
+              key: 'name'
+              value: 'Bob'
+      responses:
+        201:
+          description: SUCCESS - Example created
+          content:
+            application/json:
+              schema:
+                $ref: 'components.yml#/components/schemas/ExampleObject'
+        401:
+          description: ERROR - Could not create example
+          content:
+            application/json:
+              schema:
+                $ref: 'components.yml#/components/schemas/GeneralError'

@@ -1,0 +1,19 @@
+components:
+  schemas:
+    GeneralError:
+      type: object
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    ExampleObject:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
