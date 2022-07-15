@@ -3,28 +3,22 @@ from sqlalchemy.exc import IntegrityError
 
 
 class Code(db.Model):
-    __tablename__ = 'Code'
-    id = db.Column(
-        db.String(5),
-        primary_key=True
-    )
+    __tablename__ = "Code"
+    id = db.Column(db.String(5), primary_key=True)
     description = db.Column(db.Text())
 
     def __init__(self, id=None, description=None):
-      self.id = id
-      self.description = description
+        self.id = id
+        self.description = description
 
     def __repr__(self):
         return f'Code("{self.id}","{self.description}")'
 
     def __str__(self):
-        return f'({self.id},{self.description})'
+        return f"({self.id},{self.description})"
 
     def as_json(self):
-        return {
-            "id": self.id,
-            "description": self.description
-        }
+        return {"id": self.id, "description": self.description}
 
 
 class CodeError(Exception):
@@ -96,7 +90,5 @@ class CodeMethods:
             db.session.commit()
         except IntegrityError:
             db.session.rollback()
-            raise CodeError(
-                message=f"An code with id '{id}' already exists"
-            )
+            raise CodeError(message=f"An code with id '{id}' already exists")
         return code

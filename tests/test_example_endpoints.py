@@ -4,6 +4,7 @@ Test magic links functionality
 import pytest
 from tests.utils import compare_events
 
+
 @pytest.mark.usefixtures("flask_test_client")
 class TestEventEndpoints:
 
@@ -18,19 +19,19 @@ class TestEventEndpoints:
         :param flask_test_client:
         """
         expected_event = {
-                "entity_identifier": "uuid_from_external",
-                "code": "SCORE_AMENDED",
-                "timestamp": "2021-12-12 21:12:04",
-                "user_id": "user123",
-                "body": "{'key': 'body'}"
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "SCORE_AMENDED",
+            "timestamp": "2021-12-12 21:12:04",
+            "user_id": "user123",
+            "body": "{'key': 'body'}",
+        }
         payload = {
-                "entity_identifier": "uuid_from_external",
-                "code": "SCORE_AMENDED",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": { "key": "body" }
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "SCORE_AMENDED",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "body"},
+        }
         endpoint = "/events"
         response = flask_test_client.post(endpoint, json=payload)
         response_event = response.get_json()
@@ -46,35 +47,38 @@ class TestEventEndpoints:
         :param flask_test_client:
         """
         payload = {
-                "entity_identifier": "uuid_from_external",
-                "code": "SCORE_CREATED",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": {'key': 'a'}
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "SCORE_CREATED",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "a"},
+        }
         payload_two = {
-                "entity_identifier": "uuid2_from_external",
-                "code": "SCORE_CREATED",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": {'key': 'b'}
-              }
+            "entity_identifier": "uuid2_from_external",
+            "code": "SCORE_CREATED",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "b"},
+        }
         endpoint = "/events"
         flask_test_client.post(endpoint, json=payload)
         flask_test_client.post(endpoint, json=payload_two)
-        expected_events_list = [{
+        expected_events_list = [
+            {
                 "entity_identifier": "uuid_from_external",
                 "code": "SCORE_CREATED",
                 "timestamp": "2021-12-12 21:12:04",
                 "user_id": "user123",
-                "body": "{'key': 'a'}"
-              }, {
+                "body": "{'key': 'a'}",
+            },
+            {
                 "entity_identifier": "uuid2_from_external",
                 "code": "SCORE_CREATED",
                 "timestamp": "2021-12-12 21:12:04",
                 "user_id": "user123",
-                "body": "{'key': 'b'}"
-              }]
+                "body": "{'key': 'b'}",
+            },
+        ]
         response = flask_test_client.get(endpoint)
         response_events_list = response.get_json()
 
@@ -90,12 +94,12 @@ class TestEventEndpoints:
         :param flask_test_client:
         """
         payload = {
-                "entity_identifier": "uuid_from_external",
-                "code": "SCORE_CREATED",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": { "key": "body" }
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "SCORE_CREATED",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "body"},
+        }
         endpoint = "/events"
         response_one = flask_test_client.post(endpoint, json=payload)
         event_one = response_one.get_json()
@@ -113,11 +117,11 @@ class TestEventEndpoints:
         :param flask_test_client:
         """
         payload = {
-                "entity_identifier": "uuid_from_external",
-                "code": "SCORE_CREATED",
-                "user_id": "user123",
-                "body": { "key": "body" }
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "SCORE_CREATED",
+            "user_id": "user123",
+            "body": {"key": "body"},
+        }
         endpoint = "/events"
         response = flask_test_client.post(endpoint, json=payload)
         error_response = response.get_json()
@@ -125,9 +129,9 @@ class TestEventEndpoints:
         assert response.status_code == 400
         assert (
             error_response.get("message")
-            == f"'timestamp' is missing a value, a full event payload is required."
-    )
-
+            == "'timestamp' is missing a value, a full event payload is"
+            " required."
+        )
 
     def test_get_events_list_filter(self, flask_test_client):
         """
@@ -136,32 +140,33 @@ class TestEventEndpoints:
         THEN a list of event records is returned
         :param flask_test_client:
         """
-        expected_events = [{"key": "name", "value": "Bob"}]
         payload = {
-                "entity_identifier": "uuid_from_external",
-                "code": "SCORE_CREATED",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": {'key': 'a'}
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "SCORE_CREATED",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "a"},
+        }
         payload_two = {
-                "entity_identifier": "uuid2_from_external",
-                "code": "SCORE_SUBMITTED",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": {'key': 'b'}
-              }
+            "entity_identifier": "uuid2_from_external",
+            "code": "SCORE_SUBMITTED",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "b"},
+        }
         post_endpoint = "/events"
         search_endpoint = "/events?event_id=SCORE_CREATED"
         flask_test_client.post(post_endpoint, json=payload)
         flask_test_client.post(post_endpoint, json=payload_two)
-        expected_events_list = [{
+        expected_events_list = [
+            {
                 "entity_identifier": "uuid_from_external",
                 "code": "SCORE_CREATED",
                 "timestamp": "2021-12-12 21:12:04",
                 "user_id": "user123",
-                "body": "{'key': 'a'}"
-              }]
+                "body": "{'key': 'a'}",
+            }
+        ]
         response = flask_test_client.get(search_endpoint)
         response_events_list = response.get_json()
 
@@ -173,17 +178,18 @@ class TestEventEndpoints:
     def test_unknown_event_code_fails(self, flask_test_client):
         """
         GIVEN a running Flask client and db
-        WHEN we POST to /events with a json payload containing an unknown event code
+        WHEN we POST to /events with a json payload containing an
+        unknown event code
         THEN a 401 error message is returned
         :param flask_test_client:
         """
         payload = {
-                "entity_identifier": "uuid_from_external",
-                "code": "unknown",
-                "timestamp": "04-12-21-12-12-2021",
-                "user_id": "user123",
-                "body": { "key": "body" }
-              }
+            "entity_identifier": "uuid_from_external",
+            "code": "unknown",
+            "timestamp": "04-12-21-12-12-2021",
+            "user_id": "user123",
+            "body": {"key": "body"},
+        }
         endpoint = "/events"
         response = flask_test_client.post(endpoint, json=payload)
         error_response = response.get_json()
@@ -191,5 +197,5 @@ class TestEventEndpoints:
         assert response.status_code == 400
         assert (
             error_response.get("message")
-            == f"There was an problem with your request"
+            == "There was an problem with your request"
         )

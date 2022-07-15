@@ -8,6 +8,7 @@ from fsd_utils.logging import logging
 from openapi.utils import get_bundled_specs
 from sqlalchemy import event
 
+
 def create_app() -> Flask:
 
     # Configure Connexion and Swagger
@@ -45,12 +46,14 @@ def create_app() -> Flask:
     # See also #proxy_setups section at
     # flask.palletsprojects.com/en/1.0.x/deploying/wsgi-standalone
     from werkzeug.middleware.proxy_fix import ProxyFix
+
     flask_app.wsgi_app = ProxyFix(flask_app.wsgi_app, x_proto=1, x_host=1)
 
     # Ensure FOREIGN KEY for sqlite3
-    if 'sqlite' in flask_app.config['SQLALCHEMY_DATABASE_URI']:
+    if "sqlite" in flask_app.config["SQLALCHEMY_DATABASE_URI"]:
+
         def _fk_pragma_on_connect(dbapi_con, con_record):  # noqa
-            dbapi_con.execute('pragma foreign_keys=ON')
+            dbapi_con.execute("pragma foreign_keys=ON")
 
     # Disable strict talisman on swagger docs pages
     @flask_app.before_request
@@ -85,8 +88,9 @@ def create_app() -> Flask:
         migrate.init_app(flask_app, db, directory="db/migrations")
 
         # Turn on FK enforce when using SQLite
-        event.listen(db.engine, 'connect', _fk_pragma_on_connect)
+        event.listen(db.engine, "connect", _fk_pragma_on_connect)
 
         return flask_app
+
 
 app = create_app()

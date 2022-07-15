@@ -18,7 +18,7 @@ You should see the following:
 
 Whenever you make changes to database models, please run:
 
-    flask db migrate 
+    flask db migrate
 
 This automatically detects the scripted database changes and updates the migration folder (/db/migrations).
 

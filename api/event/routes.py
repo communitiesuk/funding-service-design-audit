@@ -1,3 +1,5 @@
+import json
+
 from api.responses import error_response
 from api.responses import event_object_response
 from db.models.event import EventError
@@ -5,7 +7,6 @@ from db.models.event import EventMethods
 from flask import request
 from flask import Response
 from flask.views import MethodView
-import json
 
 
 class EventsView(EventMethods, MethodView):
@@ -40,7 +41,7 @@ class EventsView(EventMethods, MethodView):
         :return: a json of the event object created (or an error of failure)
         """
         import datetime
-  
+
         event_payload = {
             "code": request.get_json().get("code"),
             "entity_identifier": request.get_json().get("entity_identifier"),
@@ -49,10 +50,16 @@ class EventsView(EventMethods, MethodView):
             "body": str(request.get_json().get("body")),
         }
         for key, value in event_payload.items():
-            if value == None:
-                return error_response(400, f"'{key}' is missing a value, a full event payload is required.")
+            if value is None:
+                return error_response(
+                    400,
+                    f"'{key}' is missing a value, a full event payload is"
+                    " required.",
+                )
         try:
-            event_payload["timestamp"] = datetime.datetime.strptime(event_payload["timestamp"], '%S-%M-%H-%d-%m-%Y')
+            event_payload["timestamp"] = datetime.datetime.strptime(
+                event_payload["timestamp"], "%S-%M-%H-%d-%m-%Y"
+            )
             new_event = self.create_event(**event_payload)
             return event_object_response(new_event.as_dict(), 201)
         except EventError as e:
