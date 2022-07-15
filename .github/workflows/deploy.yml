@@ -1,5 +1,3 @@
-#TODO Uncomment this workflow to use a custom workflow, or delete the file if not
-#TODO Find all 'TEMPLATE' references in this file & Replace with your repo identifier
 name: Deploy to Gov PaaS
 
 on:
@@ -65,7 +63,7 @@ jobs:
           cf_space:    ${{secrets.CF_SPACE }}
           cf_username: ${{secrets.CF_USER}}
           cf_password: ${{secrets.CF_PASSWORD}}
-          command: push funding-service-design-TEMPLATE-dev -f manifest-dev.yml
+          command: push funding-service-design-audit-dev -f manifest-dev.yml
 #TODO Uncomment the next name block if using the notification service
 #      - name: Apply network policy for notification service
 #        uses: citizen-of-planet-earth/cf-cli-action@v2
@@ -75,7 +73,7 @@ jobs:
 #          cf_space:    ${{secrets.CF_SPACE }}
 #          cf_username: ${{secrets.CF_USER}}
 #          cf_password: ${{secrets.CF_PASSWORD}}
-#          command: add-network-policy funding-service-design-TEMPLATE-dev funding-service-design-notification-dev --protocol tcp --port 8080
+#          command: add-network-policy funding-service-design-audit-dev funding-service-design-notification-dev --protocol tcp --port 8080
 
   security:
     needs: deploy_dev
@@ -98,7 +96,7 @@ jobs:
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.3.0
         with:
-          target: 'https://funding-service-design-TEMPLATE-dev.london.cloudapps.digital/'
+          target: 'https://funding-service-design-audit-dev.london.cloudapps.digital/'
           allow_issue_writing: False
 
   deploy_test:
@@ -129,7 +127,7 @@ jobs:
           cf_username: ${{secrets.CF_USER}}
           cf_password: ${{secrets.CF_PASSWORD}}
           #TODO Ensure that the github secrets in the following command are correctly set
-          command: push funding-service-design-TEMPLATE-test -f manifest-test.yml --var RSA256_PRIVATE_KEY_BASE64="${{secrets.RSA256_PRIVATE_KEY_BASE64}}" --var RSA256_PUBLIC_KEY_BASE64="${{secrets.RSA256_PUBLIC_KEY_BASE64}}" --var SECRET_KEY="${{secrets.SECRET_KEY}}" --var SESSION_COOKIE_NAME="${{secrets.SESSION_COOKIE_NAME}}"
+          command: push funding-service-design-audit-test -f manifest-test.yml --var RSA256_PRIVATE_KEY_BASE64="${{secrets.RSA256_PRIVATE_KEY_BASE64}}" --var RSA256_PUBLIC_KEY_BASE64="${{secrets.RSA256_PUBLIC_KEY_BASE64}}" --var SECRET_KEY="${{secrets.SECRET_KEY}}" --var SESSION_COOKIE_NAME="${{secrets.SESSION_COOKIE_NAME}}"
 #TODO Uncomment the next name block if using the notification service
 #      - name: Apply network policy for notification service
 #        uses: citizen-of-planet-earth/cf-cli-action@v2
@@ -139,7 +137,7 @@ jobs:
 #          cf_space:    ${{secrets.CF_SPACE }}
 #          cf_username: ${{secrets.CF_USER}}
 #          cf_password: ${{secrets.CF_PASSWORD}}
-#          command: add-network-policy funding-service-design-TEMPLATE-test funding-service-design-notification-test --protocol tcp --port 8080
+#          command: add-network-policy funding-service-design-audit-test funding-service-design-notification-test --protocol tcp --port 8080
 
   run_performance_tests:
     needs: deploy_test
