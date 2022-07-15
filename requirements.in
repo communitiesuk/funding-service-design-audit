@@ -15,22 +15,6 @@ Flask==2.1.1
 flask-talisman==0.8.1
 
 #-----------------------------------
-#   Static Assets
-#-----------------------------------
-Flask-Assets==2.0
-Flask-Compress==1.10.1
-cssmin==0.2.0
-pyScss==1.4.0
-jsmin==3.0.1
-govuk-frontend-jinja==2.0.0
-
-#-----------------------------------
-#   Forms
-#-----------------------------------
-Flask-WTF==1.0.0
-email-validator==1.2.1
-
-#-----------------------------------
 #   Redis / Session Management
 #-----------------------------------
 flask-redis==0.4.0
@@ -48,6 +32,9 @@ msal==1.18.0
 SQLAlchemy
 Flask-SQLAlchemy
 Flask-Migrate
+sqlalchemy-utils
+psycopg2
+sqlalchemy_serializer
 
 #-----------------------------------
 #   Connexion APIs

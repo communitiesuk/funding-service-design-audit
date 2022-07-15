@@ -32,3 +32,8 @@ def print_html_page(html: str, route_rel: str):
     f = open(html_basename + filename, "w")
     f.write(html)
     f.close()
+
+def compare_events(expected_event, response_event):
+    for key in expected_event.keys():
+      assert key in response_event.keys()
+      assert expected_event[key] == response_event[key]

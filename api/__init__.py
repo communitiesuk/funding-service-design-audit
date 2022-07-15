@@ -1,1 +1,1 @@
-from api.example.routes import ExamplesView  # noqa
+from api.routes.event import EventsView  # noqa

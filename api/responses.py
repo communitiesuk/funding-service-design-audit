@@ -8,12 +8,16 @@ def error_response(code: int, message: str):
     )
 
 
-def example_object_response(example_dict: dict, code: int = 200):
+def event_object_response(event_dict: dict, code: int = 200):
     return (
         make_response(
             {
-                "key": example_dict["key"],
-                "value": example_dict["value"],
+                "id": event_dict["id"],
+                "code": event_dict["code"],
+                "entity_identifier": event_dict["entity_identifier"],
+                "timestamp": event_dict["timestamp"],
+                "user_id": event_dict["user_id"],
+                "body": event_dict["body"]
             }
         ),
         code,

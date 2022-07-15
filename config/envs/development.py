@@ -25,4 +25,3 @@ class DevelopmentConfig(Config):
 
     # External Services
     USE_LOCAL_DATA = True
-    FUND_STORE_API_HOST = "fund_store"

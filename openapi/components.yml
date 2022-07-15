@@ -10,10 +10,31 @@ components:
           format: int32
         message:
           type: string
-    ExampleObject:
+    EventObject:
       type: object
       properties:
-        key:
+        id:
           type: string
-        value:
+        code:
           type: string
+        entity_identifier:
+          type: string
+        timestamp:
+          type: string
+        user_id:
+          type: string
+        body:
+          type: string
+    EventObjectPost:
+      type: object
+      properties:
+        code:
+          type: string
+        entity_identifier:
+          type: string
+        timestamp:
+          type: string
+        user_id:
+          type: string
+        body:
+          type: object

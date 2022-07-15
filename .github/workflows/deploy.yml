@@ -34,9 +34,9 @@ jobs:
         run: python -m venv .venv
       - name: install dependencies
         run: source .venv/bin/activate && python -m pip install --upgrade pip && python -m pip install -r requirements-dev.txt
-        # TODO: Uncomment the next two lines if this repo has static assets like css/js (creates frontend/static/dist)
-      - name: build govuk assets
-        run: source .venv/bin/activate && python build.py
+      # TODO: Uncomment the next two lines if this repo has static assets like css/js (creates frontend/static/dist)
+      # - name: build govuk assets
+      #   run: source .venv/bin/activate && python build.py
       - name: run unit tests
         run: source .venv/bin/activate && python -m pytest .
   deploy_dev:
@@ -54,9 +54,9 @@ jobs:
         run: python -m venv .venv
       - name: install dependencies
         run: source .venv/bin/activate && python -m pip install --upgrade pip && pip install -r requirements.txt
-        #TODO Uncomment the next two lines if this repo has static assets like css/js (creates frontend/static/dist)
-      - name: build govuk assets
-        run: source .venv/bin/activate && python build.py
+      #TODO Uncomment the next two lines if this repo has static assets like css/js (creates frontend/static/dist)
+      # - name: build govuk assets
+      #   run: source .venv/bin/activate && python build.py
       - name: Deploy to Gov PaaS
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:
@@ -117,9 +117,9 @@ jobs:
         run: python -m venv .venv
       - name: install dependencies
         run: source .venv/bin/activate && python -m pip install --upgrade pip && pip install -r requirements.txt
-        #TODO Uncomment the next two lines if using govuk frontend assets
-      - name: build govuk assets
-        run: source .venv/bin/activate && python build.py
+      #TODO Uncomment the next two lines if using govuk frontend assets
+      # - name: build govuk assets
+      #   run: source .venv/bin/activate && python build.py
       - name: Deploy to Gov PaaS
         uses: citizen-of-planet-earth/cf-cli-action@v2
         with:

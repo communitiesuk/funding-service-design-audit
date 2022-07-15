@@ -27,7 +27,6 @@ class UnitTestConfig(Config):
 
     # External Services
     USE_LOCAL_DATA = True
-    FUND_STORE_API_HOST = "fund_store"
 
     # RSA 256 KEYS
     _test_private_key_path = (

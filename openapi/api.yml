@@ -4,27 +4,27 @@ info:
   version: "1.0.0"
   title: Funding Service Design - TEMPLATE
 tags:
-  - name: examples
-    description: Example operations
+  - name: events
+    description: Event operations
 paths:
-  /examples:
+  /events:
     get:
       tags:
-        - examples
-      summary: List example objects
-      description: List all examples
-      operationId: api.ExamplesView.search
+        - events
+      summary: List event objects
+      description: List all events
+      operationId: api.EventsView.search
       responses:
         200:
-          description: SUCCESS - A list of examples
+          description: SUCCESS - A list of events
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: 'components.yml#/components/schemas/ExampleObject'
+                  $ref: 'components.yml#/components/schemas/EventObject'
       parameters:
-        - name: search_key
+        - name: event_id
           in: query
           required: false
           schema:
@@ -32,29 +32,32 @@ paths:
             format: query
     post:
       tags:
-        - examples
-      summary: Create an example object
-      description: Create a fesh example object
-      operationId: api.ExamplesView.create
+        - events
+      summary: Create an event object
+      description: Create a fesh event object
+      operationId: api.EventsView.create
       requestBody:
-        description: Example creation parameters
+        description: Event creation parameters
         required: true
         content:
           application/json:
             schema:
-              $ref: 'components.yml#/components/schemas/ExampleObject'
+              $ref: 'components.yml#/components/schemas/EventObjectPost'
             example:
-              key: 'name'
-              value: 'Bob'
+              entity_identifier: 'uuidv4'
+              code: 'SCORE_SUBMITTED'
+              timestamp: '12:12:2021'
+              user_id: 'user123'
+              body: { "key": "body" }
       responses:
         201:
-          description: SUCCESS - Example created
+          description: SUCCESS - Event created
           content:
             application/json:
               schema:
-                $ref: 'components.yml#/components/schemas/ExampleObject'
+                $ref: 'components.yml#/components/schemas/EventObject'
         401:
-          description: ERROR - Could not create example
+          description: ERROR - Could not create event
           content:
             application/json:
               schema:
