@@ -85,7 +85,7 @@ class DefaultConfig(object):
     FSD_PERMISSIONS_POLICY = {"interest-cohort": "()"}
     FSD_DOCUMENT_POLICY = {}
     FSD_FEATURE_POLICY = {
-        "microphone": "'bob'",
+        "microphone": "'none'",
         "camera": "'none'",
         "geolocation": "'none'",
     }

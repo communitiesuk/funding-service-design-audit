@@ -49,7 +49,8 @@ def create_app() -> Flask:
 
     flask_app.wsgi_app = ProxyFix(flask_app.wsgi_app, x_proto=1, x_host=1)
 
-    # Ensure FOREIGN KEY for sqlite3
+
+    # A function to enforce Foreign keys (FK's not enforced by default) when using SQLite
     if "sqlite" in flask_app.config["SQLALCHEMY_DATABASE_URI"]:
 
         def _fk_pragma_on_connect(dbapi_con, con_record):  # noqa
@@ -60,6 +61,7 @@ def create_app() -> Flask:
     def before_request_modifier():
         if request.path.startswith("/docs"):
             talisman.content_security_policy = Config.SWAGGER_CSP
+            talisman.content_security_policy_nonce_in = ['None']
         else:
             talisman.content_security_policy = Config.SECURE_CSP
             talisman.content_security_policy_nonce_in = ["script-src"]
@@ -84,10 +86,11 @@ def create_app() -> Flask:
 
         # Bind SQLAlchemy ORM to Flask app
         db.init_app(flask_app)
+
         # Bind Flask-Migrate db utilities to Flask app
         migrate.init_app(flask_app, db, directory="db/migrations")
 
-        # Turn on FK enforce when using SQLite
+        # Add event listener for db connections (to enable FK when using SQLite)
         event.listen(db.engine, "connect", _fk_pragma_on_connect)
 
         return flask_app
