@@ -4,3 +4,9 @@ applications:
   buildpacks:
   - https://github.com/cloudfoundry/python-buildpack.git
   command: gunicorn wsgi:app -c run/gunicorn/devtest.py
+
+- name: funding-service-design-audit-test
+  memory: 64M
+  buildpacks:
+  - https://github.com/cloudfoundry/python-buildpack.git
+  command: gunicorn wsgi:app -c run/gunicorn/devtest.py
