@@ -10,14 +10,14 @@ from flask.views import MethodView
 
 
 class EventsView(EventMethods, MethodView):
-    def search(self, event_id: str = None):
+    def search(self, event_code: str = None):
         """
         GET /events endpoint
-        :param search_key: String key to search for
+        :param search_code: Event code to search for
         :return: Json Response
         """
         return Response(
-            json.dumps(self.list_events(query=event_id, as_dict=True)),
+            json.dumps(self.list_events(query=event_code, as_dict=True)),
             mimetype="application/json",
         )
 

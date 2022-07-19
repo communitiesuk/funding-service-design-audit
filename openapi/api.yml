@@ -24,7 +24,7 @@ paths:
                 items:
                   $ref: 'components.yml#/components/schemas/EventObject'
       parameters:
-        - name: event_id
+        - name: event_code
           in: query
           required: false
           schema:
