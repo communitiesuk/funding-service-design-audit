@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths-ignore:
-      - '**/README.md'
+      - "**/README.md"
 
 jobs:
   test_and_deploy:
