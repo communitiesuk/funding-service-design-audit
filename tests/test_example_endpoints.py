@@ -155,7 +155,7 @@ class TestEventEndpoints:
             "body": {"key": "b"},
         }
         post_endpoint = "/events"
-        search_endpoint = "/events?event_id=SCORE_CREATED"
+        search_endpoint = "/events?event_code=SCORE_CREATED"
         flask_test_client.post(post_endpoint, json=payload)
         flask_test_client.post(post_endpoint, json=payload_two)
         expected_events_list = [
