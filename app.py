@@ -88,9 +88,10 @@ def create_app() -> Flask:
         # Bind Flask-Migrate db utilities to Flask app
         migrate.init_app(flask_app, db, directory="db/migrations")
 
-        # Add event listener for db connections (to enable FK when
-        # using SQLite)
-        event.listen(db.engine, "connect", _fk_pragma_on_connect)
+        if "sqlite" in flask_app.config["SQLALCHEMY_DATABASE_URI"]:
+            # Add event listener for db connections (to enable FK when
+            # using SQLite)
+            event.listen(db.engine, "connect", _fk_pragma_on_connect)
 
         return flask_app
 
