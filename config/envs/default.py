@@ -18,34 +18,6 @@ class DefaultConfig(object):
     # Logging
     FSD_LOG_LEVEL = logging.WARNING
 
-    # Frontend
-    STATIC_FOLDER = "frontend/static/dist/"
-    STATIC_URL_PATH = "/assets"
-    TEMPLATES_FOLDER = "templates"
-    ASSETS_DEBUG = False
-    ASSETS_AUTO_BUILD = True
-
-    # External Services
-    TEST_API_METHOD_PATH = path.join(
-        FLASK_ROOT,
-        "tests",
-        "api_data",
-        "{method}_endpoint_data.json",
-    )
-    FUNDS_ENDPOINT = "/funds"
-
-    """
-    Session
-    """
-    SESSION_TYPE = (
-        # Specifies how the token cache should be stored
-        # in server-side session
-        # "filesystem"
-        "redis"
-    )
-    SESSION_PERMANENT = False
-    SESSION_USE_SIGNER = True
-
     """
     Database
     """

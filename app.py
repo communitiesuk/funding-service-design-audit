@@ -71,11 +71,11 @@ def create_app() -> Flask:
     def inject_global_constants():
         return dict(
             stage="beta",
-            service_title="Funding Service Design - TEMPLATE",
+            service_title="Funding Service Design Audit",
             service_meta_description=(
-                "Funding Service Design Iteration - TEMPLATE"
+                "Funding Service Design Iteration Audit"
             ),
-            service_meta_keywords="Funding Service Design - TEMPLATE",
+            service_meta_keywords="Funding Service Design Audit",
             service_meta_author="DLUHC",
         )
 
