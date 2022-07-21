@@ -6,13 +6,12 @@
 
 [![CodeQL](https://github.com/communitiesuk/funding-service-design-audit/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/communitiesuk/funding-service-design-audit/actions/workflows/codeql-analysis.yml)
 
-A repository for the Funding Service Design Audit service. 
+A repository for the Funding Service Design Audit service.
 
 An audit store that will receive audit events from other fsd services and store them for record.
 
 - ### [Prerequisites](docs/prereqs.md)
 - ### [Application setup](docs/setup.md)
-- ### [Linked services](docs/linked_services.md)
 - ### [Run application](docs/run.md)
 - ### [Pipelines](docs/pipelines.md)
 - ### [Testing](docs/testing)
