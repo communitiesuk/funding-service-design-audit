@@ -21,7 +21,7 @@ components:
           type: string
         timestamp:
           type: string
-        user_id:
+        auditor_user_id:
           type: string
         body:
           type: string
@@ -34,7 +34,7 @@ components:
           type: string
         timestamp:
           type: string
-        user_id:
+        auditor_user_id:
           type: string
         body:
           type: object

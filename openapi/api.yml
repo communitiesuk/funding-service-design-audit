@@ -47,7 +47,7 @@ paths:
               entity_identifier: 'uuidv4'
               code: 'SCORE_SUBMITTED'
               timestamp: '12:12:2021'
-              user_id: 'user123'
+              auditor_user_id: 'user123'
               body: { "key": "body" }
       responses:
         201:

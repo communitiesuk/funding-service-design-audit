@@ -16,7 +16,7 @@ def event_object_response(event_dict: dict, code: int = 200):
                 "code": event_dict["code"],
                 "entity_identifier": event_dict["entity_identifier"],
                 "timestamp": event_dict["timestamp"],
-                "user_id": event_dict["user_id"],
+                "auditor_user_id": event_dict["auditor_user_id"],
                 "body": event_dict["body"],
             }
         ),
