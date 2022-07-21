@@ -34,7 +34,7 @@ paths:
       tags:
         - events
       summary: Create an event object
-      description: Create a fesh event object
+      description: Create a fresh event object
       operationId: api.EventsView.create
       requestBody:
         description: Event creation parameters
