@@ -35,7 +35,7 @@ def upgrade():
         sa.Column("code", sa.String(length=20), nullable=False),
         sa.Column("entity_identifier", sa.Text(), nullable=False),
         sa.Column("timestamp", sa.DateTime(), nullable=False),
-        sa.Column("user_id", sa.Text(), nullable=True),
+        sa.Column('auditor_user_id', sa.Text(), nullable=True),
         sa.Column("body", sa.Text(), nullable=True),
         sa.ForeignKeyConstraint(
             ["code"],

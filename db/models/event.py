@@ -16,7 +16,7 @@ class Event(db.Model):
     code = db.Column(db.String(20), db.ForeignKey(Code.id), nullable=False)
     entity_identifier = db.Column(db.Text(), nullable=False)
     timestamp = db.Column(db.DateTime(), nullable=False)
-    user_id = db.Column(db.Text())
+    auditor_user_id = db.Column(db.Text())
     body = db.Column(db.Text())
 
     def __repr__(self):
