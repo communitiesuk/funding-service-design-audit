@@ -24,7 +24,7 @@ def expected_data_within_get_response(
 
     """
     response = test_client.get(endpoint, follow_redirects=True)
-    response_data = json.loads(response.data)
+    response_data = response.json
 
     diff = DeepDiff(
         expected_data,
