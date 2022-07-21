@@ -4,6 +4,8 @@ applications:
   buildpacks:
   - https://github.com/cloudfoundry/python-buildpack.git
   command: gunicorn wsgi:app -c run/gunicorn/devtest.py
+  services:
+  - logit-ssl-drain
 
 - name: funding-service-design-audit-test
   memory: 64M
@@ -11,4 +13,5 @@ applications:
   - https://github.com/cloudfoundry/python-buildpack.git
   command: gunicorn wsgi:app -c run/gunicorn/devtest.py
   services:
+  - logit-ssl-drain
   - funding-service-design-audit-db
