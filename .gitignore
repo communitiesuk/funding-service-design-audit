@@ -128,8 +128,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-<<<<<<< HEAD
-=======
 
 # Flask
 flask_session
@@ -149,4 +147,3 @@ html
 
 # Sqlite
 sqlite.db
->>>>>>> fs-1116-add-utils-demo
