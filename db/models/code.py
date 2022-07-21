@@ -4,7 +4,7 @@ from sqlalchemy.exc import IntegrityError
 
 class Code(db.Model):
     __tablename__ = "Code"
-    id = db.Column(db.String(5), primary_key=True)
+    id = db.Column(db.String(20), primary_key=True)
     description = db.Column(db.Text())
 
     def __init__(self, id=None, description=None):

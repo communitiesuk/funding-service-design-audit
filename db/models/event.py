@@ -13,7 +13,7 @@ class Event(db.Model):
     id = db.Column(
         UUIDType(binary=False), default=uuid.uuid4, primary_key=True
     )
-    code = db.Column(db.String(5), db.ForeignKey(Code.id), nullable=False)
+    code = db.Column(db.String(20), db.ForeignKey(Code.id), nullable=False)
     entity_identifier = db.Column(db.Text(), nullable=False)
     timestamp = db.Column(db.DateTime(), nullable=False)
     user_id = db.Column(db.Text())

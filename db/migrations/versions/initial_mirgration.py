@@ -32,7 +32,7 @@ def upgrade():
             sqlalchemy_utils.types.uuid.UUIDType(binary=False),
             nullable=False,
         ),
-        sa.Column("code", sa.String(length=5), nullable=False),
+        sa.Column("code", sa.String(length=20), nullable=False),
         sa.Column("entity_identifier", sa.Text(), nullable=False),
         sa.Column("timestamp", sa.DateTime(), nullable=False),
         sa.Column("user_id", sa.Text(), nullable=True),
