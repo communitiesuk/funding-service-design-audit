@@ -1,0 +1,14 @@
+{
+  "account_store/accounts": {
+    "email_address=a%40example.com": {
+      "account_id": "usera",
+      "emailAddress": "a@example.com",
+      "applications": []
+    },
+    "email_address=b%40example.com": {
+      "account_id": "userb",
+      "emailAddress": "b@example.com",
+      "applications": []
+    }
+  }
+}
