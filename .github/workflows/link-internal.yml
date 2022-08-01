@@ -20,7 +20,7 @@ jobs:
             cf_space:    ${{secrets.CF_SPACE }}
             cf_username: ${{secrets.CF_USER}}
             cf_password: ${{secrets.CF_PASSWORD}}
-            command: add-network-policy funding-service-design-assessment-store-dev funding-service-design-audit-dev --protocol tcp --port 8080
+            command: add-network-policy funding-service-design-assessment-store-dev --destination-app funding-service-design-audit-dev --protocol tcp --port 8080
 
   link_test:
       needs: deploy_test
@@ -35,4 +35,4 @@ jobs:
             cf_space:    ${{secrets.CF_SPACE }}
             cf_username: ${{secrets.CF_USER}}
             cf_password: ${{secrets.CF_PASSWORD}}
-            command: add-network-policy funding-service-design-assessment-store-test funding-service-design-audit-test --protocol tcp --port 8080
+            command: add-network-policy funding-service-design-assessment-store-test --destination-app funding-service-design-audit-test --protocol tcp --port 8080
