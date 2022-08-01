@@ -1,5 +1,5 @@
 from db import db
-from sqlalchemy.exc import IntegrityError
+from db.models.run_query import add_data
 
 
 class Code(db.Model):
@@ -84,11 +84,6 @@ class CodeMethods:
         Returns:
             Code object or None
         """
-        try:
-            code = Code(id=id, description=description)
-            db.session.add(code)
-            db.session.commit()
-        except IntegrityError:
-            db.session.rollback()
-            raise CodeError(message=f"An code with id '{id}' already exists")
+        code = Code(id=id, description=description)
+        add_data(code, CodeError)
         return code

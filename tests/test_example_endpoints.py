@@ -195,7 +195,4 @@ class TestEventEndpoints:
         error_response = response.get_json()
 
         assert response.status_code == 400
-        assert (
-            error_response.get("message")
-            == "There was an problem with your request"
-        )
+        assert error_response.get("message") == "FOREIGN KEY constraint failed"

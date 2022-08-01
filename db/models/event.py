@@ -2,7 +2,7 @@ import uuid
 
 from db import db
 from db.models.code import Code
-from sqlalchemy.exc import IntegrityError
+from db.models.run_query import add_data
 from sqlalchemy_utils.types import UUIDType
 
 # SQLite does not support Enum
@@ -119,19 +119,12 @@ class EventMethods:
         Returns:
             Event object or None
         """
-        try:
-            event = Event(
-                code=code,
-                entity_identifier=entity_identifier,
-                timestamp=timestamp,
-                user_id=user_id,
-                body=body,
-            )
-            db.session.add(event)
-            db.session.commit()
-        except IntegrityError:
-            db.session.rollback()
-            raise EventError(
-                message="There was an problem with your request", code=400
-            )
+        event = Event(
+            code=code,
+            entity_identifier=entity_identifier,
+            timestamp=timestamp,
+            user_id=user_id,
+            body=body,
+        )
+        add_data(event, EventError)
         return event

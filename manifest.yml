@@ -23,4 +23,3 @@ applications:
   services:
   - logit-ssl-drain
   - funding-service-design-audit-db
-
