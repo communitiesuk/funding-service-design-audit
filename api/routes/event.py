@@ -46,7 +46,7 @@ class EventsView(EventMethods, MethodView):
             "code": request.get_json().get("code"),
             "entity_identifier": request.get_json().get("entity_identifier"),
             "timestamp": request.get_json().get("timestamp"),
-            "auditor_user_id": request.get_json().get("auditor_user_id"),
+            "user_id": request.get_json().get("user_id"),
             "body": str(request.get_json().get("body")),
         }
         for key, value in event_payload.items():

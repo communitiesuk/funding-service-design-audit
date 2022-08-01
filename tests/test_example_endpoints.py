@@ -22,14 +22,14 @@ class TestEventEndpoints:
             "entity_identifier": "uuid_from_external",
             "code": "SCORE_AMENDED",
             "timestamp": "2021-12-12 21:12:04",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": "{'key': 'body'}",
         }
         payload = {
             "entity_identifier": "uuid_from_external",
             "code": "SCORE_AMENDED",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "body"},
         }
         endpoint = "/events"
@@ -50,14 +50,14 @@ class TestEventEndpoints:
             "entity_identifier": "uuid_from_external",
             "code": "SCORE_CREATED",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "a"},
         }
         payload_two = {
             "entity_identifier": "uuid2_from_external",
             "code": "SCORE_CREATED",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "b"},
         }
         endpoint = "/events"
@@ -68,14 +68,14 @@ class TestEventEndpoints:
                 "entity_identifier": "uuid_from_external",
                 "code": "SCORE_CREATED",
                 "timestamp": "2021-12-12 21:12:04",
-                "auditor_user_id": "user123",
+                "user_id": "user123",
                 "body": "{'key': 'a'}",
             },
             {
                 "entity_identifier": "uuid2_from_external",
                 "code": "SCORE_CREATED",
                 "timestamp": "2021-12-12 21:12:04",
-                "auditor_user_id": "user123",
+                "user_id": "user123",
                 "body": "{'key': 'b'}",
             },
         ]
@@ -97,7 +97,7 @@ class TestEventEndpoints:
             "entity_identifier": "uuid_from_external",
             "code": "SCORE_CREATED",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "body"},
         }
         endpoint = "/events"
@@ -119,7 +119,7 @@ class TestEventEndpoints:
         payload = {
             "entity_identifier": "uuid_from_external",
             "code": "SCORE_CREATED",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "body"},
         }
         endpoint = "/events"
@@ -144,14 +144,14 @@ class TestEventEndpoints:
             "entity_identifier": "uuid_from_external",
             "code": "SCORE_CREATED",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "a"},
         }
         payload_two = {
             "entity_identifier": "uuid2_from_external",
             "code": "SCORE_SUBMITTED",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "b"},
         }
         post_endpoint = "/events"
@@ -163,7 +163,7 @@ class TestEventEndpoints:
                 "entity_identifier": "uuid_from_external",
                 "code": "SCORE_CREATED",
                 "timestamp": "2021-12-12 21:12:04",
-                "auditor_user_id": "user123",
+                "user_id": "user123",
                 "body": "{'key': 'a'}",
             }
         ]
@@ -187,7 +187,7 @@ class TestEventEndpoints:
             "entity_identifier": "uuid_from_external",
             "code": "unknown",
             "timestamp": "04-12-21-12-12-2021",
-            "auditor_user_id": "user123",
+            "user_id": "user123",
             "body": {"key": "body"},
         }
         endpoint = "/events"

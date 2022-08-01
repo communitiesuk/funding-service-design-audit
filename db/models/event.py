@@ -16,19 +16,19 @@ class Event(db.Model):
     code = db.Column(db.String(20), db.ForeignKey(Code.id), nullable=False)
     entity_identifier = db.Column(db.Text(), nullable=False)
     timestamp = db.Column(db.DateTime(), nullable=False)
-    auditor_user_id = db.Column(db.Text())
+    user_id = db.Column(db.Text())
     body = db.Column(db.Text())
 
     def __repr__(self):
         return (
             f'Event("{self.id}","{self.code}","{self.entity_identifier}",'
-            f'"{self.timestamp}","{self.auditor_user_id}","{self.body}"'
+            f'"{self.timestamp}","{self.user_id}","{self.body}"'
         )
 
     def __str__(self):
         return (
             f"{self.id},{self.code},{self.entity_identifier},"
-            f"{self.timestamp},{self.auditor_user_id},{self.body}"
+            f"{self.timestamp},{self.user_id},{self.body}"
         )
 
     def as_dict(self):
@@ -37,7 +37,7 @@ class Event(db.Model):
             "code": self.code,
             "entity_identifier": self.entity_identifier,
             "timestamp": str(self.timestamp),
-            "auditor_user_id": self.auditor_user_id,
+            "user_id": self.user_id,
             "body": self.body,
         }
 
@@ -103,7 +103,7 @@ class EventMethods:
         code: str,
         entity_identifier: str,
         timestamp: str,
-        auditor_user_id: str,
+        user_id: str,
         body: str,
     ):
         """
@@ -114,7 +114,7 @@ class EventMethods:
             entity_identifier: (str): the id of the event entity
             timestamp (datetime): a datetime object representing
             the time at which the event occured at source
-            auditor_user_id (str): the id of the user who triggered the event
+            user_id (str): the id of the user who triggered the event
             body (str): the changed state as a result of the event
         Returns:
             Event object or None
@@ -124,7 +124,7 @@ class EventMethods:
                 code=code,
                 entity_identifier=entity_identifier,
                 timestamp=timestamp,
-                auditor_user_id=auditor_user_id,
+                user_id=user_id,
                 body=body,
             )
             db.session.add(event)
