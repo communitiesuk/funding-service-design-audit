@@ -1,7 +1,7 @@
 [package]
-name = "funding-service-design-authenticator"
-version = "0.1.1"
-description = "The funding service design authenticator for the DLUHC."
+name = "funding-service-design-audit"
+version = "0.1.0"
+description = "The funding service design audit service."
 authors = ["Version One"]
 license = "MIT License"
 
