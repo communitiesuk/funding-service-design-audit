@@ -4,17 +4,50 @@ on:
   workflow_dispatch:
   push:
     paths-ignore:
-      - '**/README.md'
+      - "**/README.md"
 
 jobs:
   test_and_deploy:
     uses: communitiesuk/funding-design-service-workflows/.github/workflows/deploy.yml@main
     with:
-      app_name: ${{ github.event.repository.name }}
+      app_name: ${{github.event.repository.name}}
       api: true
+      upgrade_db: true
+      assets_required: false
     secrets:
       CF_API: ${{secrets.CF_API}}
       CF_ORG: ${{secrets.CF_ORG}}
       CF_SPACE: ${{secrets.CF_SPACE}}
       CF_USER: ${{secrets.CF_USER}}
       CF_PASSWORD: ${{secrets.CF_PASSWORD}}
+
+  link_dev:
+      needs: test_and_deploy
+      runs-on: ubuntu-latest
+      environment: Dev
+      steps:
+        - name: Apply network policy for assessment store
+          uses: citizen-of-planet-earth/cf-cli-action@v2
+          with:
+            cf_api:      ${{secrets.CF_API}}
+            cf_org:      ${{secrets.CF_ORG}}
+            cf_space:    ${{secrets.CF_SPACE }}
+            cf_username: ${{secrets.CF_USER}}
+            cf_password: ${{secrets.CF_PASSWORD}}
+            command: add-network-policy funding-service-design-assessment-store-dev funding-service-design-audit-dev --protocol tcp --port 8080
+
+  link_test:
+      if: ${{ github.ref == 'refs/heads/main' }}
+      needs: test_and_deploy
+      runs-on: ubuntu-latest
+      environment: Test
+      steps:
+        - name: Apply network policy for assessment store
+          uses: citizen-of-planet-earth/cf-cli-action@v2
+          with:
+            cf_api:      ${{secrets.CF_API}}
+            cf_org:      ${{secrets.CF_ORG}}
+            cf_space:    ${{secrets.CF_SPACE }}
+            cf_username: ${{secrets.CF_USER}}
+            cf_password: ${{secrets.CF_PASSWORD}}
+            command: add-network-policy funding-service-design-assessment-store-test funding-service-design-audit-test --protocol tcp --port 8080

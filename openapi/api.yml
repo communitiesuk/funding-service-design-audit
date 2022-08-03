@@ -1,0 +1,64 @@
+openapi: "3.0.0"
+info:
+  description: TEMPLATE API for DLUHC Funding Service Design
+  version: "1.0.0"
+  title: Funding Service Design - TEMPLATE
+tags:
+  - name: events
+    description: Event operations
+paths:
+  /events:
+    get:
+      tags:
+        - events
+      summary: List event objects
+      description: List all events
+      operationId: api.EventsView.search
+      responses:
+        200:
+          description: SUCCESS - A list of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'components.yml#/components/schemas/EventObject'
+      parameters:
+        - name: event_code
+          in: query
+          required: false
+          schema:
+            type: string
+            format: query
+    post:
+      tags:
+        - events
+      summary: Create an event object
+      description: Create a fresh event object
+      operationId: api.EventsView.create
+      requestBody:
+        description: Event creation parameters
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'components.yml#/components/schemas/EventObjectPost'
+            example:
+              entity_identifier: 'uuidv4'
+              code: 'SCORE_SUBMITTED'
+              timestamp: '59-59-23-12-12-2021'
+              user_id: 'user123'
+              body: { "key": "body" }
+      responses:
+        201:
+          description: SUCCESS - Event created
+          content:
+            application/json:
+              schema:
+                $ref: 'components.yml#/components/schemas/EventObject'
+        401:
+          description: ERROR - Could not create event
+          content:
+            application/json:
+              schema:
+                $ref: 'components.yml#/components/schemas/GeneralError'

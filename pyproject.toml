@@ -1,0 +1,10 @@
+[package]
+name = "funding-service-design-audit"
+version = "0.1.0"
+description = "The funding service design audit service."
+authors = ["Version One"]
+license = "MIT License"
+
+[tool.black]
+line-length = 79
+experimental-string-processing = 1

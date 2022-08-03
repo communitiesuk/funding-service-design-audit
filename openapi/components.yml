@@ -1,0 +1,40 @@
+components:
+  schemas:
+    GeneralError:
+      type: object
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    EventObject:
+      type: object
+      properties:
+        id:
+          type: string
+        code:
+          type: string
+        entity_identifier:
+          type: string
+        timestamp:
+          type: string
+        user_id:
+          type: string
+        body:
+          type: string
+    EventObjectPost:
+      type: object
+      properties:
+        code:
+          type: string
+        entity_identifier:
+          type: string
+        timestamp:
+          type: string
+        user_id:
+          type: string
+        body:
+          type: object
