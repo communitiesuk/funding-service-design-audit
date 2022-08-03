@@ -2,7 +2,6 @@
 import logging
 from os import path
 
-import redis
 from config.envs.default import DefaultConfig as Config
 from fsd_utils import configclass
 

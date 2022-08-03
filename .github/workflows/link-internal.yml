@@ -3,9 +3,9 @@ name: Link internal audit service to assessment store service
 on:
   workflow_dispatch:
   push:
-
     paths-ignore:
       - '**/README.md'
+
 jobs:
   link_dev:
       needs: deploy_dev
