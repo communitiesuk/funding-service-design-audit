@@ -38,37 +38,8 @@ class UnitTestConfig(Config):
     with open(_test_public_key_path, mode="rb") as public_key_file:
         RSA256_PUBLIC_KEY = public_key_file.read()
 
-    # Redis
-    REDIS_SESSIONS_URL = "redis://localhost:6379/0"
-    SESSION_REDIS = redis.from_url(REDIS_SESSIONS_URL)
-
     # Security
     FORCE_HTTPS = False
-
-    TALISMAN_SETTINGS = {
-        "feature_policy": Config.FSD_FEATURE_POLICY,
-        "permissions_policy": Config.FSD_PERMISSIONS_POLICY,
-        "document_policy": Config.FSD_DOCUMENT_POLICY,
-        "force_https": FORCE_HTTPS,
-        "force_https_permanent": False,
-        "force_file_save": False,
-        "frame_options": "SAMEORIGIN",
-        "frame_options_allow_from": None,
-        "strict_transport_security": True,
-        "strict_transport_security_preload": True,
-        "strict_transport_security_max_age": Config.ONE_YEAR_IN_SECS,
-        "strict_transport_security_include_subdomains": True,
-        "content_security_policy": Config.SECURE_CSP,
-        "content_security_policy_report_uri": None,
-        "content_security_policy_report_only": False,
-        "content_security_policy_nonce_in": None,
-        "referrer_policy": Config.FSD_REFERRER_POLICY,
-        "session_cookie_secure": True,
-        "session_cookie_http_only": True,
-        "session_cookie_samesite": Config.FSD_SESSION_COOKIE_SAMESITE,
-        "x_content_type_options": True,
-        "x_xss_protection": True,
-    }
 
     # Database
     SQLITE_DB_NAME = "test_sqlite.db"
