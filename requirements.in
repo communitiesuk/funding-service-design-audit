@@ -33,7 +33,7 @@ SQLAlchemy
 Flask-SQLAlchemy
 Flask-Migrate
 sqlalchemy-utils
-psycopg2
+psycopg2-binary
 sqlalchemy_serializer
 
 #-----------------------------------
