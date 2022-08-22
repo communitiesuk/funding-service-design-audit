@@ -10,6 +10,8 @@ applications:
     FLASK_ENV: dev
   services:
   - logit-ssl-drain
+  health-check-http-endpoint: /healthcheck
+  health-check-type: http
 
 - name: funding-service-design-audit-test
   memory: 64M
@@ -23,3 +25,5 @@ applications:
   services:
   - logit-ssl-drain
   - funding-service-design-audit-db
+  health-check-http-endpoint: /healthcheck
+  health-check-type: http

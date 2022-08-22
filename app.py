@@ -4,6 +4,9 @@ from connexion.resolver import MethodViewResolver
 from flask import Flask
 from flask import request
 from flask_talisman import Talisman
+from fsd_utils.healthchecks.checkers import DbChecker
+from fsd_utils.healthchecks.checkers import FlaskRunningChecker
+from fsd_utils.healthchecks.healthcheck import Healthcheck
 from fsd_utils.logging import logging
 from openapi.utils import get_bundled_specs
 from sqlalchemy import event
@@ -77,6 +80,9 @@ def create_app() -> Flask:
             service_meta_author="DLUHC",
         )
 
+    health = Healthcheck(flask_app)
+    health.add_check(FlaskRunningChecker())
+
     # For circular imports
     with flask_app.app_context():
         # Setup database
@@ -92,6 +98,8 @@ def create_app() -> Flask:
             # Add event listener for db connections (to enable FK when
             # using SQLite)
             event.listen(db.engine, "connect", _fk_pragma_on_connect)
+
+        health.add_check(DbChecker(db))
 
         return flask_app
 

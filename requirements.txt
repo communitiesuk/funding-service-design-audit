@@ -57,10 +57,8 @@ flask-sqlalchemy==2.5.1
     #   flask-migrate
 flask-talisman==0.8.1
     # via -r requirements.in
-funding-service-design-utils @ https://github.com/communitiesuk/funding-service-design-utils/archive/refs/tags/0.0.11.tar.gz
+funding-service-design-utils @ https://github.com/communitiesuk/funding-service-design-utils/archive/refs/tags/0.0.14.tar.gz
     # via -r requirements.in
-greenlet==1.1.2
-    # via sqlalchemy
 gunicorn==20.1.0
     # via funding-service-design-utils
 idna==3.3
