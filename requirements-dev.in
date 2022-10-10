@@ -1,6 +1,6 @@
 -r requirements.txt
 bandit
-safety==1.10.3
+safety==2.1.1
 black
 deepdiff
 pre-commit
