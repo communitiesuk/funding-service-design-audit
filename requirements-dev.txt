@@ -23,7 +23,7 @@ babel==2.10.3
     #   flask-babel
 bandit==1.7.4
     # via -r requirements-dev.in
-black==22.6.0
+black==22.12.0
     # via -r requirements-dev.in
 build==0.8.0
     # via pip-tools
@@ -117,6 +117,8 @@ gitdb==4.0.9
     # via gitpython
 gitpython==3.1.27
     # via bandit
+greenlet==2.0.1
+    # via sqlalchemy
 gunicorn==20.1.0
     # via
     #   -r requirements.txt
@@ -284,9 +286,7 @@ ruamel-yaml==0.17.21
     #   -r requirements.txt
     #   prance
 ruamel-yaml-clib==0.2.6
-    # via
-    #   -r requirements.txt
-    #   ruamel-yaml
+    # via -r requirements.txt
 safety==1.10.3
     # via -r requirements-dev.in
 semver==2.13.0
@@ -320,11 +320,7 @@ toml==0.10.2
     #   dparse
     #   pre-commit
 tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   pep517
-    #   pytest
+    # via pytest
 urllib3==1.26.11
     # via
     #   -r requirements.txt
