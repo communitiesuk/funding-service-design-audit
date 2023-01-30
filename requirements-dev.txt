@@ -80,7 +80,7 @@ deprecated==1.2.13
     #   redis
 distlib==0.3.5
     # via virtualenv
-dparse==0.5.1
+dparse==0.6.2
     # via safety
 filelock==3.7.1
     # via virtualenv
@@ -117,6 +117,8 @@ gitdb==4.0.9
     # via gitpython
 gitpython==3.1.27
     # via bandit
+greenlet==2.0.2
+    # via sqlalchemy
 gunicorn==20.1.0
     # via
     #   -r requirements.txt
@@ -260,7 +262,6 @@ pyyaml==6.0
     #   bandit
     #   clickclick
     #   connexion
-    #   dparse
     #   funding-service-design-utils
     #   openapi-spec-validator
     #   pre-commit
@@ -283,11 +284,10 @@ ruamel-yaml==0.17.21
     # via
     #   -r requirements.txt
     #   prance
+    #   safety
 ruamel-yaml-clib==0.2.6
-    # via
-    #   -r requirements.txt
-    #   ruamel-yaml
-safety==1.10.3
+    # via -r requirements.txt
+safety==2.3.5
     # via -r requirements-dev.in
 semver==2.13.0
     # via
@@ -320,11 +320,7 @@ toml==0.10.2
     #   dparse
     #   pre-commit
 tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   pep517
-    #   pytest
+    # via pytest
 urllib3==1.26.11
     # via
     #   -r requirements.txt
