@@ -38,7 +38,7 @@ cryptography==37.0.4
     #   pyjwt
 deprecated==1.2.13
     # via redis
-flask==2.1.1
+flask==2.2.2
     # via
     #   -r requirements.in
     #   connexion
@@ -64,6 +64,8 @@ flask-talisman==0.8.1
     # via -r requirements.in
 funding-service-design-utils==1.0.0
     # via -r requirements.in
+greenlet==2.0.2
+    # via sqlalchemy
 gunicorn==20.1.0
     # via funding-service-design-utils
 idna==3.3
@@ -145,8 +147,6 @@ rich==12.5.1
     # via funding-service-design-utils
 ruamel-yaml==0.17.21
     # via prance
-ruamel-yaml-clib==0.2.6
-    # via ruamel-yaml
 semver==2.13.0
     # via prance
 six==1.16.0
@@ -168,7 +168,7 @@ swagger-ui-bundle==0.0.9
     # via -r requirements.in
 urllib3==1.26.11
     # via requests
-werkzeug==2.2.1
+werkzeug==2.2.2
     # via
     #   connexion
     #   flask
