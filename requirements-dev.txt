@@ -84,7 +84,7 @@ dparse==0.5.1
     # via safety
 filelock==3.7.1
     # via virtualenv
-flask==2.1.1
+flask==2.2.3
     # via
     #   -r requirements.txt
     #   connexion
@@ -117,6 +117,10 @@ gitdb==4.0.9
     # via gitpython
 gitpython==3.1.27
     # via bandit
+greenlet==2.0.2
+    # via
+    #   -r requirements.txt
+    #   sqlalchemy
 gunicorn==20.1.0
     # via
     #   -r requirements.txt
@@ -283,10 +287,6 @@ ruamel-yaml==0.17.21
     # via
     #   -r requirements.txt
     #   prance
-ruamel-yaml-clib==0.2.6
-    # via
-    #   -r requirements.txt
-    #   ruamel-yaml
 safety==1.10.3
     # via -r requirements-dev.in
 semver==2.13.0
@@ -320,18 +320,14 @@ toml==0.10.2
     #   dparse
     #   pre-commit
 tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   pep517
-    #   pytest
+    # via pytest
 urllib3==1.26.11
     # via
     #   -r requirements.txt
     #   requests
 virtualenv==20.16.2
     # via pre-commit
-werkzeug==2.2.1
+werkzeug==2.2.3
     # via
     #   -r requirements.txt
     #   connexion
