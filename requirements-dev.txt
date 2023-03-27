@@ -8,10 +8,6 @@ alembic==1.8.1
     # via
     #   -r requirements.txt
     #   flask-migrate
-async-timeout==4.0.2
-    # via
-    #   -r requirements.txt
-    #   redis
 attrs==22.1.0
     # via
     #   -r requirements.txt
@@ -74,10 +70,6 @@ cryptography==37.0.4
     #   pyjwt
 deepdiff==5.8.1
     # via -r requirements-dev.in
-deprecated==1.2.13
-    # via
-    #   -r requirements.txt
-    #   redis
 distlib==0.3.5
     # via virtualenv
 dparse==0.5.1
@@ -117,6 +109,10 @@ gitdb==4.0.9
     # via gitpython
 gitpython==3.1.27
     # via bandit
+greenlet==2.0.2
+    # via
+    #   -r requirements.txt
+    #   sqlalchemy
 gunicorn==20.1.0
     # via
     #   -r requirements.txt
@@ -183,7 +179,6 @@ packaging==21.3
     #   connexion
     #   dparse
     #   pytest
-    #   redis
     #   safety
 pathspec==0.9.0
     # via black
@@ -264,7 +259,7 @@ pyyaml==6.0
     #   funding-service-design-utils
     #   openapi-spec-validator
     #   pre-commit
-redis==4.3.4
+redis==4.5.3
     # via
     #   -r requirements.txt
     #   flask-redis
@@ -283,10 +278,6 @@ ruamel-yaml==0.17.21
     # via
     #   -r requirements.txt
     #   prance
-ruamel-yaml-clib==0.2.6
-    # via
-    #   -r requirements.txt
-    #   ruamel-yaml
 safety==1.10.3
     # via -r requirements-dev.in
 semver==2.13.0
@@ -320,11 +311,7 @@ toml==0.10.2
     #   dparse
     #   pre-commit
 tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   pep517
-    #   pytest
+    # via pytest
 urllib3==1.26.11
     # via
     #   -r requirements.txt
@@ -339,10 +326,6 @@ werkzeug==2.2.1
     #   pytest-flask
 wheel==0.37.1
     # via pip-tools
-wrapt==1.14.1
-    # via
-    #   -r requirements.txt
-    #   deprecated
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
