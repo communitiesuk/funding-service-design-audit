@@ -36,8 +36,6 @@ cryptography==37.0.4
     # via
     #   msal
     #   pyjwt
-deprecated==1.2.13
-    # via redis
 flask==2.1.1
     # via
     #   -r requirements.in
@@ -64,6 +62,8 @@ flask-talisman==0.8.1
     # via -r requirements.in
 funding-service-design-utils==1.0.0
     # via -r requirements.in
+greenlet==2.0.2
+    # via sqlalchemy
 gunicorn==20.1.0
     # via funding-service-design-utils
 idna==3.3
@@ -98,9 +98,7 @@ openapi-schema-validator==0.2.3
 openapi-spec-validator==0.4.0
     # via -r requirements.in
 packaging==21.3
-    # via
-    #   connexion
-    #   redis
+    # via connexion
 prance==0.21.8.0
     # via -r requirements.in
 psycopg2-binary==2.9.3
@@ -133,7 +131,7 @@ pyyaml==6.0
     #   connexion
     #   funding-service-design-utils
     #   openapi-spec-validator
-redis==4.3.4
+redis==4.4.4
     # via flask-redis
 requests==2.28.1
     # via
@@ -145,8 +143,6 @@ rich==12.5.1
     # via funding-service-design-utils
 ruamel-yaml==0.17.21
     # via prance
-ruamel-yaml-clib==0.2.6
-    # via ruamel-yaml
 semver==2.13.0
     # via prance
 six==1.16.0
@@ -172,8 +168,6 @@ werkzeug==2.2.1
     # via
     #   connexion
     #   flask
-wrapt==1.14.1
-    # via deprecated
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
