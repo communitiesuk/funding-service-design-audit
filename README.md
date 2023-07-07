@@ -1,5 +1,7 @@
 # Funding service design Audit.
 
+**Archived as not currently in use.**
+
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 ![Funding Service Design Frontend Deploy](https://github.com/communitiesuk/funding-service-design-audit/actions/workflows/deploy.yml/badge.svg)
